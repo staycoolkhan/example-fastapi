@@ -23,7 +23,7 @@ class Post(PostBase):
     owner_id: int
     owner: UserOut
     class Config:
-        orm_mode = True
+         from_attributes = True
 
 # Response model
 class PostOut(BaseModel):
@@ -31,7 +31,7 @@ class PostOut(BaseModel):
     votes: int
 
     class Config:
-        orm_mode = True
+         from_attributes = True
 
 class UserCreate(BaseModel):
     email: EmailStr
