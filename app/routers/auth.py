@@ -18,8 +18,8 @@ def login(user_credentials:OAuth2PasswordRequestForm= Depends(), db: Session = D
    if not utils.verify(user_credentials.password, user.password):
        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f"Invalid Credentials")
    
-   if not user.isactive:
-       raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Credentials")
+#    if not user.isactive:
+#        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Credentials")
 
    # create a token
    # return token

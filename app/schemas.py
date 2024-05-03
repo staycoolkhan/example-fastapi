@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr, conint
+from pydantic import BaseModel, EmailStr, conint, ConfigDict
     
 class PostBase(BaseModel):
     title:str 
@@ -22,7 +22,7 @@ class Post(PostBase):
     created_at: datetime
     owner_id: int
     owner: UserOut
-    class Config:
+    class Config(ConfigDict):
          from_attributes = True
 
 # Response model
@@ -30,7 +30,7 @@ class PostOut(BaseModel):
     Post: Post
     votes: int
 
-    class Config:
+    class Config(ConfigDict):
          from_attributes = True
 
 class UserCreate(BaseModel):
